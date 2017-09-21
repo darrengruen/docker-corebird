@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+docker run -d \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v "${DCONF}"/corebird:/root/.config/corebird \
+    -e DISPLAY=unix"${DISPLAY}" \
+    --network host \
+    --name corebird \
+    gruen/corebird
+    
